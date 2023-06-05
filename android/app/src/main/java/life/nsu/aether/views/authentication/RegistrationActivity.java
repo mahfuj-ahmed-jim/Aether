@@ -39,7 +39,7 @@ public class RegistrationActivity extends AppCompatActivity {
     MaterialButton mSignUp;
     MaterialButton mLogin;
 
-    private String type = "student";
+    private String type = "STUDENT";
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -80,9 +80,9 @@ public class RegistrationActivity extends AppCompatActivity {
 
         mType.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.rb_teacher) {
-                type = "teacher";
+                type = "TEACHER";
             } else {
-                type = "student";
+                type = "STUDENT";
             }
         });
 

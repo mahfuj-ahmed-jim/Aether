@@ -123,7 +123,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat"
-                android:hint="@string/title_password"
+                android:hint="@string/title_re_type_password"
                 android:importantForAutofill="no"
                 android:inputType="textPassword"
                 android:maxLines="1"

@@ -43,6 +43,7 @@ public class StudentMoreViewModel extends AndroidViewModel {
     }
 
     public void switchActivity(MessageResponse messageResponse) {
+        System.out.println("Jim");
         new Handler(Objects.requireNonNull(Looper.myLooper())).postDelayed(() -> {
             if (!messageResponse.isError()) {
                 preference.clearAuth();

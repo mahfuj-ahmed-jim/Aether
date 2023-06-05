@@ -64,7 +64,12 @@ public class LoginViewModel extends AndroidViewModel {
                     preference.setAccessToken(loginResponse.getTokens().getAccessToken());
                     preference.setRefreshToken(loginResponse.getTokens().getRefreshToken());
 
-                    gson = new Gson();
+                    preference.setType("STUDENT");
+                    Intent intent = new Intent(getApplication().getApplicationContext(), StudentHomeActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    getApplication().getApplicationContext().startActivity(intent);
+
+                    /*gson = new Gson();
                     Student student = new Student(); // = gson.fromJson(preference.getAccessToken(), Student.class);
 
                     try{
@@ -87,7 +92,7 @@ public class LoginViewModel extends AndroidViewModel {
                         Intent intent = new Intent(getApplication().getApplicationContext(), TeacherHomeActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         getApplication().getApplicationContext().startActivity(intent);
-                    }
+                    }*/
 
                 }
             } else {
