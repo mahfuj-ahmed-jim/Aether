@@ -47,14 +47,14 @@ public class RefreshRepository {
     public MutableLiveData<RefreshResponse> getRefreshResponseMutableLiveData(String refreshToken) {
         Call<RefreshResponse> call = NetworkingService.getInstance()
                 .getRoute()
-                .refreshSession(refreshToken);
+                .refreshSession("Bearer "+refreshToken);
 
         call.enqueue(new Callback<RefreshResponse>() {
             @Override
             public void onResponse(@NonNull Call<RefreshResponse> call, @NonNull Response<RefreshResponse> response) {
+                System.out.println(response.body());
                 if (response.body() != null) {
                     refreshResponseMutableLiveData.postValue(response.body());
-//                    Log.d("refreshResponse", response.body().getMessage() + " " + response.body().isError() + " " + response.body().getAccessToken());
                 }
 
                 if (response.errorBody() != null) {
@@ -73,7 +73,7 @@ public class RefreshRepository {
             @Override
             public void onFailure(@NonNull Call<RefreshResponse> call, @NonNull Throwable t) {
 //                Log.d("refreshResponse", t.getMessage());
-                refreshResponseMutableLiveData.postValue(new RefreshResponse(true, t.getMessage(), null));
+                refreshResponseMutableLiveData.postValue(new RefreshResponse(t.getMessage(), null));
             }
         });
 

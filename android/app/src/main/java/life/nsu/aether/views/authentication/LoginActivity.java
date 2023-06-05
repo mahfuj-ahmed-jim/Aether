@@ -27,6 +27,7 @@ import java.util.Objects;
 
 import life.nsu.aether.R;
 import life.nsu.aether.utils.CustomProgressBar;
+import life.nsu.aether.viewModels.SplashViewModel;
 import life.nsu.aether.viewModels.authentication.LoginViewModel;
 
 public class LoginActivity extends AppCompatActivity {

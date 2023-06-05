@@ -1,6 +1,6 @@
 /*
- * RefreshResponse Created by Samiur Prapon
- * Last modified  8/5/21, 7:53 PM
+ * LoginResponse Created by Samiur Prapon
+ * Last modified  6/1/21 7:42 AM
  * Copyright (c) 2021. All rights reserved.
  *
  */
@@ -12,7 +12,10 @@ import androidx.annotation.NonNull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import life.nsu.aether.models.Tokens;
+
 public class RefreshResponse {
+
     @SerializedName("isError")
     @Expose()
     private boolean isError;
@@ -29,8 +32,7 @@ public class RefreshResponse {
         // empty constructor for Retrofit
     }
 
-    public RefreshResponse(boolean isError, String message, String accessToken) {
-        this.isError = isError;
+    public RefreshResponse(String message, String accessToken) {
         this.message = message;
         this.accessToken = accessToken;
     }
@@ -39,21 +41,23 @@ public class RefreshResponse {
         return isError;
     }
 
+    public void setError(boolean error) {
+        isError = error;
+    }
+
     public String getMessage() {
         return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public String getAccessToken() {
         return accessToken;
     }
 
-    @NonNull
-    @Override
-    public String toString() {
-        return "RefreshResponse{" +
-                "isError=" + isError +
-                ", message='" + message + '\'' +
-                ", accessToken='" + accessToken + '\'' +
-                '}';
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
     }
 }
