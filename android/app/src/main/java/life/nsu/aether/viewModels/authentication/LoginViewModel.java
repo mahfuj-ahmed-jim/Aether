@@ -65,20 +65,25 @@ public class LoginViewModel extends AndroidViewModel {
                     preference.setRefreshToken(loginResponse.getTokens().getRefreshToken());
 
                     gson = new Gson();
-                    Student student = gson.fromJson(preference.getDecodedAccessToken(), Student.class);
+                    Student student = new Student(); // = gson.fromJson(preference.getAccessToken(), Student.class);
 
+                    try{
+                        student = gson.fromJson(preference.getAccessToken(), Student.class);
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
 
 //                    Log.d("LoginViewModel", "switchActivity: " + loginResponse.getTokens().getAccessToken());
 //                    Log.d("LoginViewModel", "Decode : " + student.getUser().toString());
 //                    Log.d("LoginViewModel", "Decode-user : " + student.getPermission().getType());
 
-                    if (student.getPermission().getType().equals("student")) {
-                        preference.setType("student");
+                    if (student.getPermission().getType().equals("STUDENT")) {
+                        preference.setType("STUDENT");
                         Intent intent = new Intent(getApplication().getApplicationContext(), StudentHomeActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         getApplication().getApplicationContext().startActivity(intent);
-                    } else if(student.getPermission().getType().equals("teacher")){
-                        preference.setType("teacher");
+                    } else if(student.getPermission().getType().equals("TEACHER")){
+                        preference.setType("TEACHER");
                         Intent intent = new Intent(getApplication().getApplicationContext(), TeacherHomeActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         getApplication().getApplicationContext().startActivity(intent);

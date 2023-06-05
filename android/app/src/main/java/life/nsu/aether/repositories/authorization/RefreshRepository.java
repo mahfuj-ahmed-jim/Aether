@@ -73,7 +73,7 @@ public class RefreshRepository {
             @Override
             public void onFailure(@NonNull Call<RefreshResponse> call, @NonNull Throwable t) {
 //                Log.d("refreshResponse", t.getMessage());
-                refreshResponseMutableLiveData.postValue(new RefreshResponse(true, t.getMessage(), ""));
+                refreshResponseMutableLiveData.postValue(new RefreshResponse(true, t.getMessage(), null));
             }
         });
 
