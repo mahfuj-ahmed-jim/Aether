@@ -76,7 +76,7 @@ public class ProfileFragment extends Fragment {
         mName.setText(studentProfileDetailsResponse.getStudent().getUser().getName());
         mStudentId.setText(studentProfileDetailsResponse.getStudent().getDetails().getStudentID());
         mEmail.setText(studentProfileDetailsResponse.getStudent().getUser().getEmail());
-        mGender.setText(studentProfileDetailsResponse.getStudent().getUser().getSex());
+        // mGender.setText(studentProfileDetailsResponse.getStudent().getUser().getSex());
     }
 
 }

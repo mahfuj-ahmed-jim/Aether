@@ -11,6 +11,12 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class UserDetails {
+    public UserDetails(String id, String studentID, String school) {
+        this.id = id;
+        this.studentID = studentID;
+        this.school = school;
+    }
+
     @SerializedName("id")
     @Expose()
     private String id;

@@ -30,7 +30,6 @@ public class SplashActivity extends AppCompatActivity {
 
         viewModel.getRefreshResponseMutableLiveData().observe(this, refreshResponse -> {
 //            Log.d("SplashActivity", "onCreate: " + refreshResponse.toString());
-
             viewModel.switchActivity(refreshResponse);
 
         });

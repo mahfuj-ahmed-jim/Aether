@@ -40,12 +40,12 @@ public class Preference {
 
     public void setRefreshToken(String refreshToken) {
         authPreferences.edit().putString("refreshToken", refreshToken).apply();
-        authPreferences.edit().putString("decodedRefreshToken", decoder.getDecodedString(refreshToken)).apply();
+        authPreferences.edit().putString("decodedRefreshToken", refreshToken/*decoder.getDecodedString(refreshToken)*/).apply();
     }
 
     public void setAccessToken(String accessToken) {
         authPreferences.edit().putString("accessToken", accessToken).apply();
-        authPreferences.edit().putString("decodedAccessToken", decoder.getDecodedString(accessToken)).apply();
+        authPreferences.edit().putString("decodedAccessToken", accessToken/*decoder.getDecodedString(accessToken)*/).apply();
     }
 
     public String getDecodedAccessToken() {

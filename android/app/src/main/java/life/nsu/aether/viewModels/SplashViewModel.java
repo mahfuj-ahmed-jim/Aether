@@ -48,9 +48,7 @@ public class SplashViewModel extends AndroidViewModel {
     public void switchActivity(RefreshResponse refreshResponse) {
         new Handler(Objects.requireNonNull(Looper.myLooper())).postDelayed(() -> {
             Intent intent;
-
-            if (preference.getRefreshToken() == null || refreshResponse.getAccessToken() == null) {
-                preference.clearAuth();
+            if (refreshResponse.getAccessToken() == null || refreshResponse.getAccessToken().isEmpty()) {
                 intent = new Intent(getApplication().getApplicationContext(), LoginActivity.class);
             } else if (preference.getType().equals("STUDENT")){
                 preference.setAccessToken(refreshResponse.getAccessToken());

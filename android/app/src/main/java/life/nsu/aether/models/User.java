@@ -29,17 +29,9 @@ public class User {
     @Expose()
     private String name;
 
-    @SerializedName("sex")
+    @SerializedName("school")
     @Expose()
-    private String sex;
-
-    @SerializedName("cid")
-    @Expose()
-    private String cid;
-
-    @SerializedName("isBan")
-    @Expose()
-    private boolean isBan;
+    private String school;
 
     public User() {
         // empty constructor for Retrofit
@@ -54,24 +46,19 @@ public class User {
         return email;
     }
 
+    public User(String id, String email, String name, String school) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.school = school;
+    }
+
     public String getName() {
         return name;
     }
 
     public String getSchool() {
         return school;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public String getCid() {
-        return cid;
-    }
-
-    public boolean isBan() {
-        return isBan;
     }
 
     @NonNull
@@ -81,9 +68,6 @@ public class User {
                 "id='" + id + '\'' +
                 ", email='" + email + '\'' +
                 ", name='" + name + '\'' +
-                ", sex='" + sex + '\'' +
-                ", cid='" + cid + '\'' +
-                ", isBan=" + isBan +
                 '}';
     }
 }

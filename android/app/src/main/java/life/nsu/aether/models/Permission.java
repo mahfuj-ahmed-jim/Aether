@@ -19,6 +19,16 @@ public class Permission {
     @Expose()
     private String type;
 
+    @SerializedName("level")
+    @Expose()
+    private String level;
+
+    public Permission(String id, String type, String level) {
+        this.id = id;
+        this.type = type;
+        this.level = level;
+    }
+
     public Permission() {
         // empty constructor for Retrofit
     }
@@ -29,5 +39,9 @@ public class Permission {
 
     public String getType() {
         return type;
+    }
+
+    public String getLevel() {
+        return level;
     }
 }
